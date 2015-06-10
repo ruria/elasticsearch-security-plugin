@@ -63,6 +63,8 @@ HttpServerTransport {
 	private final String port;
 
 	private final String bindHost;
+	
+	final private boolean detailedErrorsEnabled;
 
 	final ByteSizeValue maxContentLength;
 
@@ -185,6 +187,7 @@ HttpServerTransport {
 
 		port = componentSettings.get("port",
 				settings.get("http.port", "8080"));
+		detailedErrorsEnabled = componentSettings.getAsBoolean("http.detailed_errors.enabled", true);
 		bindHost = componentSettings.get("bind_host",
 				settings.get("http.bind_host", settings.get("http.host")));
 		publishHost = componentSettings.get("publish_host",
@@ -735,7 +738,7 @@ HttpServerTransport {
 
 	}
 
-
+	public boolean detailedErrorsEnabled() { return detailedErrorsEnabled; }
 
 	/*
 	 * protected void configureLdapRealm(Context ctx)

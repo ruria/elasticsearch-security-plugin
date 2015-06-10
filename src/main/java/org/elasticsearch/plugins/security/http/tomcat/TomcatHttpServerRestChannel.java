@@ -48,8 +48,9 @@ public class TomcatHttpServerRestChannel extends HttpChannel {
 	public TomcatHttpServerRestChannel(
 			final TomcatHttpServerRestRequest restRequest,
 			final HttpServletResponse resp,
-			final SecurityService securityService) {
-		super(restRequest);
+			final SecurityService securityService,
+			final boolean detailedErrorsEnabled) {
+		super(restRequest, detailedErrorsEnabled);
 		this.securityService = securityService;
 		this.restRequest = restRequest;
 		this.resp = resp;

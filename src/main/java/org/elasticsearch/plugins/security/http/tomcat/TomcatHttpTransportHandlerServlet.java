@@ -33,9 +33,9 @@ public class TomcatHttpTransportHandlerServlet extends HttpServlet {
 		final HttpServerAdapter adapter = getTransport()
 				.httpServerAdapter();
 		final TomcatHttpServerRestRequest restRequest = new TomcatHttpServerRestRequest(
-				req);
+				req, getTransport().detailedErrorsEnabled());
 		final TomcatHttpServerRestChannel restChannel = new TomcatHttpServerRestChannel(
-				restRequest, resp, transport.getSecurityService());
+				restRequest, resp, transport.getSecurityService(), getTransport().detailedErrorsEnabled());
 
 		try {
 

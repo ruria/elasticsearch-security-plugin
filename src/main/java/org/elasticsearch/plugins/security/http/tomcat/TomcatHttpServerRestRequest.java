@@ -40,7 +40,7 @@ HttpRequest {
 
 	private final String opaqueId;
 
-	public TomcatHttpServerRestRequest(final HttpServletRequest request)
+	public TomcatHttpServerRestRequest(final HttpServletRequest request, boolean detailedErrorsEnabled)
 			throws IOException {
 		this.request = request;
 		opaqueId = request.getHeader("X-Opaque-Id");
